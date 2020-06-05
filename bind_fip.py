@@ -7,18 +7,16 @@ url3 = 'http://219.245.185.226:8088/get_fips'
 def bind():
     data1 = {"fip_id": "11caa377-4e4a-417f-aa0f-75325441febd", "pod_name": "qyqubuntuadmin"}
     resp = requests.post(url, data=json.dumps(data1))
-    print resp.content
+    print resp.code
 
 def unbind():
-
-    data1 = {"fip_id": "11caa377-4e4a-417f-aa0f-75325441febd"}
+    data1 = {"pod_name": "qyqubuntuadmin"}
     resp = requests.post(url2, data=json.dumps(data1))
-
+    print resp.code
 
 def list_floatingips():
     resp = requests.post(url3)
     print resp.content
 
-bind()
+#list_floatingips()
 unbind()
-list_floatingips()
