@@ -35,3 +35,6 @@ ip netn exec qrouter-bb3face6 iptables -t filter  -L
 ip netn exec qrouter-bb3face6 ping 192.168.1.6
 ```
 如果ping不通可能是网关端口的tag和容器端口的tag不一样
+```
+ovs-vsctl show
+```
