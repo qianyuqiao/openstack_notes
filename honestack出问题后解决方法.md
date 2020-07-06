@@ -20,3 +20,17 @@ hyctl floatingip-list
 service neutron-l3-agent restart
 ```
 重启后一般都能解决
+
+如果还是不行的话，进入node1上对应router的network namespace， 查看iptables的nat规则，比如
+```
+ip netn exec qrouter-bb3face6 iptables -t nat -L
+```
+查看防火墙规则
+```
+ip netn exec qrouter-bb3face6 iptables -t filter  -L
+```
+
+直接在路由的network namespace里面ping 对应的ip
+```
+ip netn exec qrouter-bb3face6 ping 192.168.1.6
+```
