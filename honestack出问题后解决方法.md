@@ -38,3 +38,50 @@ ip netn exec qrouter-bb3face6 ping 192.168.1.6
 ```
 ovs-vsctl show
 ```
+例如
+```
+    Bridge br-int
+        fail_mode: secure
+        Port "vqr-8ac32bf7"
+            tag: 7
+            Interface "vqr-8ac32bf7"
+        Port "vqr-9320c471"
+            tag: 2 // 网关端口 tag=2
+            Interface "vqr-9320c471"
+        Port "vqr-30385e0f"
+            tag: 4
+            Interface "vqr-30385e0f"
+        Port "vqr-285b67e0"
+            tag: 3
+            Interface "vqr-285b67e0"
+        Port "tape4b98"
+            tag: 5
+            Interface "tape4b98"
+        Port "vqr-a6d79c40"
+            tag: 1
+            Interface "vqr-a6d79c40"
+        Port "vqr-1ee1d7ee"
+            tag: 5
+            Interface "vqr-1ee1d7ee"
+        Port br-int
+            Interface br-int
+                type: internal
+        Port patch-int-tap
+            Interface patch-int-tap
+                type: patch
+                options: {peer=patch-tap-int}
+        Port "tap95efb"
+            tag: 2 // tag = 2
+            Interface "tap95efb"
+        Port "vqr-38576899"
+            tag: 6
+            Interface "vqr-38576899"
+        Port "tap838be"
+            tag: 2 // tag = 2
+            Interface "tap838be"
+        Port patch-tun
+            Interface patch-tun
+                type: patch
+                options: {peer=patch-int}
+
+```
